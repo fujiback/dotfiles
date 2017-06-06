@@ -16,4 +16,5 @@ download $DOTFILES_ROOT/.emacs.d/moccur-edit.el "http://www.emacswiki.org/emacs/
 
 symbolic_link $DOTFILES_ROOT/.zshrc ~/
 symbolic_link $DOTFILES_ROOT/.emacs.d ~/
+symbolic_link $DOTFILES_ROOT/.gitconfig ~/
 

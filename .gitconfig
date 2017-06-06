@@ -1,0 +1,17 @@
+[user]
+	name = tehegoto
+	email = tehegoto@gmail.com
+
+[core]
+    editor = emacs
+
+[color]
+        ui = true
+
+[alias]
+    co = checkout
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[merge]
+	ff = false
+[pull]
+	ff = only
