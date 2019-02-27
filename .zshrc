@@ -24,10 +24,6 @@ export MANPATH=/usr/share/man:/usr/X11R6/man:/usr/local/mana
 export GITHUB_HOST='github.com'
 export GITHUB_USER='tehepero'
 
-### Pivotal
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-
 ### prompt
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
 zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
@@ -57,16 +53,11 @@ alias ls='ls -Ghla'
 
 if [ "$(uname)" = 'Darwin' ]; then
     # MacOSX
-    emacs_path="/usr/local/bin/emacs-24.5"
+    emacs_path="/usr/local/Cellar/emacs/26.1_1/bin/emacs"
     alias emacs_server-start="$emacs_path -daemon"
     alias emacs_server-stop="$emacs_path -e \"(kill-emacs)\""
-    alias emacs_server-restart='/usr/local/bin/emacsclient -e "(kill-emacs)"; /usr/local/bin/emacs-24.5 -daemon'
-    alias emacs='/usr/local/bin/emacsclient -nw'
-else
-    alias emacs_server-start='emacs -daemon'
-    alias emacs_server-stop='emacsclient -e "(kill-emacs)"'
-    alias emacs_server-restart='emacsclient -e "(kill-emacs)"; /home/y/bin64/emacs -daemon'
-    alias emacs='emacsclient -nw'
+    alias emacs_server-restart="$emacs_path -e \"(kill-emacs)\"; $emacs_path -daemon"
+    alias emacs="${emacs_path}client -nw"
 fi
 
 ## auto change directory
@@ -130,3 +121,4 @@ function cde () {
 
     echo "chdir to $EMACS_CWD"
     cd "$EMACS_CWD"
+}

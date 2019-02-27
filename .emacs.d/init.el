@@ -19,8 +19,6 @@
 ;; paren
 (show-paren-mode 1)
 (setq show-paren-style 'mixed)
-(set-face-background 'show-paren-match-face "grey")
-(set-face-foreground 'show-paren-match-face "black")
 
 ;; keybinds
 (global-set-key "\C-h" 'backward-delete-char)
@@ -100,6 +98,7 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
+(el-get-bundle transient) ;; dependency of magit
 (el-get-bundle magit
   (global-set-key "\M-gs" 'magit-status))
 
@@ -193,11 +192,16 @@
 
 ;; color
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:background "black" :foreground "#FFFFFF"))))
- '(cursor ((((class color)
-             (background dark))
-            (:background "#00AA00"))
-           (((class color)
-             (background light))
-            (:background "#999999"))
-           (t ()))))
+ '(cursor ((((class color) (background dark)) (:background "#00AA00")) (((class color) (background light)) (:background "#999999")) (t nil))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (transient)))
+ '(yas-trigger-key "TAB"))
